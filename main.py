@@ -733,8 +733,8 @@ async def choose_payment(callback: CallbackQuery, state: FSMContext):
         f"Account: {account}\n"
         f"Name: {name}\n"
         "━━━━━━━━━━━━━━━━━━━\n"
-        "INSTRUCTIONS:\n"
-        "1. Copy account & verify name.\n"
+        "INSTRUCTIONS 👇:\n"
+        "1. Copy INSTRUCTIONSTIONS & verify name.\n"
         f"2. Send EXACTLY {data['amount']:.2f} ETB only.\n"
         "3. After payment, copy and paste your payment SMS here.\n"
         "Paste the SMS that contains your receipt URL (http/https link).\n\n"
@@ -865,7 +865,7 @@ async def trusted(callback: CallbackQuery):
     order_id = int(callback.data.split(":")[1])
     update_order(order_id, status="completed")
     await callback.message.edit_reply_markup(reply_markup=None)
-    await callback.message.answer(pe("አምነውን ስለመጡ ከልብ እናመሰግናለን! ታማኝነት መለያችን ነው!"))
+    await callback.message.answer(pe("Thank you from the bottom of our hearts for coming and putting your trust in us. Your support means everything to us. Trust and loyalty are what define uwait
     await callback.answer()
 
 @dp.callback_query(F.data.startswith("notrust:"))
@@ -894,7 +894,7 @@ async def receive_not_trusted_reason(message: Message, state: FSMContext):
 async def myorders(callback: CallbackQuery):
     orders = get_user_orders(callback.from_user.id)
     if not orders:
-        await edit_or_send(callback, pe("MY ORDERS\n\nYou don't have any orders yet."), kb([back_cancel("home")]))
+        await edit_or_send(callback, pe("MY ORDERS\n\nYou don't have any orders yet so order now and here ."), kb([back_cancel("home")]))
         return
     lines = ["MY ORDERS\n"]
     for o in orders:
@@ -913,7 +913,26 @@ async def support(callback: CallbackQuery):
 
 @dp.callback_query(F.data == "info")
 async def info(callback: CallbackQuery):
-    await edit_or_send(callback, pe("ABOUT IMRAN TOPUP BOT\nVersion: 2.0.0\nSecure & Fast Service"), kb([back_cancel("home")]))
+    await edit_or_send(callback, pe("ℹ️ ABOUT NATAN TOP UP
+
+Version: 2.0.0
+Platform: Telegram Bot
+
+FEATURES:
+✅ 24/7 Service
+✅ Instant & Manual Delivery
+✅ Secure Payment
+✅ Order Tracking
+✅ Customer Support
+
+SUPPORTED:
+🎮 PUBG UC
+🎮 Free Fire
+📱 TikTok Coins
+
+Contact: @aman_jj
+
+Thank you! 🚀e"), kb([back_cancel("home")]))
     await callback.answer()
 
 @dp.callback_query(F.data == "help")
