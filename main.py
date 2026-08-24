@@ -1,4 +1,4 @@
-DefaultBotPropertiestBotProperties os
+import os
 import re
 import html
 import random
